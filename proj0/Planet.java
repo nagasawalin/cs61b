@@ -12,7 +12,7 @@ public class Planet {
     public double yyVel;/*its current velocity in the y direction*/
     public double mass; /*Its mass*/
     public String imgFileName;/*The name of the file that corresponds to the image that depicts the planet */
-    public static final double g = 6.67e-11;/**the constant of gravity*/
+    private static final double g = 6.67e-11;/**the constant of gravity*/
 
     /**First constructor of a planet class, initializing an instance  
      * why do not we need a type keyword ahead of */
