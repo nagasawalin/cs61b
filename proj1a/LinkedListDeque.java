@@ -25,7 +25,8 @@ public class LinkedListDeque <T> {
     private itemNode sentinel;
 
 
-    /**create an empty List and a sentinel node*/
+    /**create an empty List and a sentinel node
+     * I forget to make the list circular after set the default value*/
     public LinkedListDeque(){
         sentinel = new itemNode(null, null, null);
         sentinel.next = sentinel;
@@ -36,6 +37,7 @@ public class LinkedListDeque <T> {
 
     /**Adds an item of type T to the front of the deque*/
     public void addFirst(T item){
+
         sentinel.next = new itemNode(item, sentinel, sentinel.next);
         sentinel.next.next.pre = sentinel.next;
         size += 1;
@@ -43,8 +45,8 @@ public class LinkedListDeque <T> {
 
     /**Adds an item of type T to the back of the deque*/
     public void addLast(T item){
-        sentinel.pre = new itemNode(item, sentinel.pre, sentinel);
-        sentinel.pre.next = sentinel;
+        sentinel.pre.next = new itemNode(item, sentinel.pre, sentinel);
+        sentinel.pre = sentinel.pre.next;
         size += 1;
     }
 
@@ -79,7 +81,7 @@ public class LinkedListDeque <T> {
          * So the back and forth arrow between last and the second last node,
          * only remains the one pointing from the last.pre to the second last node,
          * we need to change this arrow in the next line*/
-        size --;
+        size -= 1;
         return a;
     }
 
