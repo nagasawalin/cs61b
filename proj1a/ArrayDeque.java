@@ -115,7 +115,7 @@ public class ArrayDeque<T> {
          * and we do not know where the array starts, maybe the middle or front or end
          * so if we want to get the 'index' item of the array
          * we have to let index plus the first one*/
-        return items[(startingpoint + index) / items.length];
+        return items[(startingpoint + index) % items.length];
     }
 
 

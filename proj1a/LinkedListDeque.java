@@ -119,11 +119,11 @@ public class LinkedListDeque <T> {
      * 因为没有直接访问itemNode,也就是所传参数没有itemNode
      * 不能产生对链表中节点的依次寻址*/
     public T getRecursive(int index){
-        itemNode p = sentinel.next;
+        //itemNode p = sentinel.next;
         if(index > size - 1) {
             return null;
         }
-        return getRecursiveHelper(p, index);
+        return getRecursiveHelper(sentinel.next, index);
 
     }
 
