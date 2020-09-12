@@ -103,12 +103,13 @@ public class LinkedListDeque <T> {
         return x;*/
     }
 
+
     public T get(int index){
         itemNode p = sentinel.next;
         if (index > size - 1){
             return null;
         }
-        for (int i = 0; i < size; i++){
+        for (int i = 0; i < index; i++){
             p = p.next;
         }
         return p.item;
@@ -119,10 +120,10 @@ public class LinkedListDeque <T> {
      * 不能产生对链表中节点的依次寻址*/
     public T getRecursive(int index){
         itemNode p = sentinel.next;
-        if(index > size){
+        if(index > size - 1) {
             return null;
         }
-        return getRecursiveHelper(sentinel.next, index);
+        return getRecursiveHelper(p, index);
 
     }
 

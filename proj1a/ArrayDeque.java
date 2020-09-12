@@ -34,9 +34,9 @@ public class ArrayDeque<T> {
             newitems[i] = items[oldindex];
             oldindex = plusindex(oldindex);
         }
-        items = newitems;
+        this.items = newitems;
         /**The last one of the new array, also the former one ahead of 0 index*/
-        nextfirst = capacity - 1;
+        nextfirst = items.length - 1;
         nextlast = size;
     }
 
@@ -73,20 +73,20 @@ public class ArrayDeque<T> {
     public void printDeque(){
         int i = plusindex(nextfirst);
         for (int j = 0; j < size; j++){
-            System.out.println(items[i]);
+            System.out.println(items[i] + " ");
             i = plusindex(i);
         }
     }
 
-    public T removeFirst(){
-        if (size == 0){
+    public T removeFirst() {
+        if (size == 0) {
             return null;
         }
         T a = items[plusindex(nextfirst)];
         items[plusindex(nextfirst)] = null;
         nextfirst = plusindex(nextfirst);
         size -= 1;
-        if (items.length >= 16 && size < (items.length / 4)){
+        if (items.length >= 16 && size < (items.length / 4)) {
             resize(items.length / 2);
         }
         return a;
