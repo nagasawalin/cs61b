@@ -14,11 +14,11 @@ public class ArrayDeque<T> {
         size = 0;
     }
 
-    public int plusindex(int x){
+    private int plusindex(int x){
         return (x + 1) % items.length;
     }
 
-    public int minusindex(int x){
+    private int minusindex(int x){
         return (x - 1 + items.length) % items.length;
     }
 
